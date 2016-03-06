@@ -13,6 +13,7 @@ RUN { \
 RUN DEBIAN_FRONTEND=noninteractive ;\
     apt-get install --assume-yes \
         dovecot-core dovecot-imapd dovecot-pop3d \
+        tcpdump \
         sudo
 
 RUN apt-get clean

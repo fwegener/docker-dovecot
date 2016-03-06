@@ -1,0 +1,17 @@
+exim:
+  container_name:
+    dovecot
+  image:
+    fwegener/dovecot
+  #build: .
+  ports:
+    - "993:993"
+    - "995:995"
+  volumes:
+    - /data/docker/mail-data/data:/var/mail
+    - /data/docker/mail-data/log:/var/log/dovecot
+    - /data/docker/mail-data/config:/dovecot:ro
+    - /data/docker/etc/ssl/gwy2.crt:/etc/ssl/certs/ssl-mail.pem:ro
+    - /data/docker/etc/ssl/gwy2.key:/etc/ssl/private/ssl-mail.key:ro
+  environment:
+    - TZ=Europe/Berlin
